@@ -29,7 +29,6 @@ services:
     build: ./reactive-processor
     depends_on:
       - kafka
-    container_name: reactive-processor
     environment:
       KAFKA_HOST: 192.168.99.100:9092
   reactive-sink:
@@ -42,6 +41,5 @@ services:
     build: ./reactive-source
     depends_on:
       - kafka
-    container_name: reactive-source
     environment:
       KAFKA_HOST: 192.168.99.100:9092
