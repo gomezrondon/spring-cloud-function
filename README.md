@@ -6,7 +6,7 @@ to compile and generate the docker necessary files
 ```
 gradle clean unzip -x Test
 ```
-then que run the docker compose file
+then run the docker compose file
 ```
 docker-compose up -d
 ```
