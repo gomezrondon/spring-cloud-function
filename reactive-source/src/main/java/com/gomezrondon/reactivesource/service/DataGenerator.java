@@ -13,11 +13,9 @@ import java.time.Duration;
 @EnableBinding(Source.class)
 public class DataGenerator {
 
-    private final Source mysource;
     private final SubscriberGenerator generator;
 
-    public DataGenerator(Source mysource, SubscriberGenerator generator) {
-        this.mysource = mysource;
+    public DataGenerator(SubscriberGenerator generator) {
         this.generator = generator;
     }
 
@@ -25,7 +23,7 @@ public class DataGenerator {
     @Output(Source.OUTPUT)
     @PostConstruct
     Flux<Subscriber> send(){
-        return Flux.interval(Duration.ofSeconds(1))
+        return Flux.interval(Duration.ofSeconds(5))
                 .onBackpressureDrop()
                 .map(x -> generator.generate())
                 .log();
