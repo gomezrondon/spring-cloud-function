@@ -31,14 +31,15 @@ ext['springCloudVersion'] = 'Greenwich.SR1' // Ok Ok funcionan los 2 metodos
 //ext['springCloudVersion'] = 'Greenwich.RC1' // da error, NO functiona lambda
 
 dependencies {
-	implementation('org.springframework.kafka:spring-kafka')
+
+	compile("org.springframework.cloud:spring-cloud-gcp-starter-pubsub")
+	implementation('org.springframework.cloud:spring-cloud-gcp-pubsub-stream-binder')
+
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation('org.springframework.cloud:spring-cloud-stream-binder-kafka')
 	implementation 'org.springframework.cloud:spring-cloud-stream-reactive'
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	testImplementation('org.springframework.cloud:spring-cloud-stream-test-support')
-	testImplementation('org.springframework.kafka:spring-kafka-test')
 
 }
 
