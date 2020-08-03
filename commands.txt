@@ -21,3 +21,7 @@ docker rm <container name>
 docker-compose -f docker-mysql.yml up -d
 docker-compose -f docker-mongo.yml up -d
 docker-compose -f docker-rabbitmq.yml up -d
+
+gradle jibDockerBuild
+docker-compose -f docker-compose-kafka.yml up -d
+docker-compose -f docker-compose-kafka.yml down
